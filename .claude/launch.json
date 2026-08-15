@@ -2,9 +2,10 @@
   "version": "0.0.1",
   "configurations": [
     {
-      "name": "static-site",
-      "url": "http://localhost:8811",
-      "port": 8811
+      "name": "manadigitalai-dev",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev", "--", "--port", "5173"],
+      "port": 5173
     }
   ]
 }
