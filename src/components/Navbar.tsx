@@ -13,6 +13,7 @@ const navLinks = [
   { label: 'Other Businesses', to: '/other-businesses' },
   { label: 'Services', to: '/services' },
   { label: 'About', to: '/about' },
+  { label: 'Contact Us', to: '/contact' },
 ];
 
 export default function Navbar() {

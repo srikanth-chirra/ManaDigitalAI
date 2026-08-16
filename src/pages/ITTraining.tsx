@@ -20,8 +20,8 @@ export default function ITTraining() {
 
       <PageHero
         eyebrow="IT Training"
-        title="Attract More Students. Generate More Enquiries. Grow Your IT Training Institute."
-        subtitle="Digital marketing solutions designed to help IT training institutes reach the right students, generate qualified enquiries and increase admissions."
+        title="Your next student is already searching. Will they find you?"
+        subtitle="AI-powered digital marketing built for IT training institutes that want to attract the right students, fill their next batches and turn course interest into qualified admissions."
         ctaLabel="Book an IT Training Growth Call"
         ctaTo={CALENDLY_URL}
       />

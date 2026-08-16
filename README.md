@@ -15,13 +15,6 @@ npm run dev
 npm run build
 ```
 
-## Contact form backend
-
-The contact form opens WhatsApp with a pre-filled message on submit, and — once configured —
-also logs the lead to a Google Sheet (with an optional WhatsApp alert to your business number).
-See [`google-apps-script/README.md`](google-apps-script/README.md) for setup, then set
-`SHEET_WEBHOOK_URL` in [`src/lib/leads.ts`](src/lib/leads.ts).
-
 ## Deployment
 
 `public/_redirects` (Netlify) and `vercel.json` (Vercel) are included so client-side routes

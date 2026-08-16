@@ -19,8 +19,8 @@ export default function RealEstate() {
 
       <PageHero
         eyebrow="Real Estate"
-        title="Generate Better Property Leads. Grow Your Real Estate Business."
-        subtitle="Digital marketing and lead generation solutions designed for builders, developers, real estate companies and property professionals."
+        title="Don't just list properties. Create demand."
+        subtitle="AI-powered digital marketing built for builders, developers and real estate businesses that want to stand out, reach serious buyers and turn property visibility into qualified enquiries."
         ctaLabel="Book a Real Estate Growth Call"
         ctaTo={CALENDLY_URL}
       />

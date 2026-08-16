@@ -54,8 +54,8 @@ export default function Healthcare() {
 
       <PageHero
         eyebrow="Healthcare"
-        title="Helping Healthcare Businesses Grow Through Digital."
-        subtitle="Digital marketing and growth solutions designed for hospitals, clinics and healthcare professionals who want to attract more patients and build a stronger digital presence."
+        title="Great healthcare deserves to be discovered."
+        subtitle="AI-powered digital marketing built for healthcare professionals who want to be discovered, trusted and chosen by the right patients. We turn your digital presence into a powerful growth engine that drives visibility, engagement and patient enquiries."
         ctaLabel="Book a Healthcare Growth Call"
         ctaTo={CALENDLY_URL}
       />

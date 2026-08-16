@@ -1,11 +1,25 @@
-import { Mail, Phone } from 'lucide-react';
+import type { ComponentType } from 'react';
+import { Mail, Phone, Globe } from 'lucide-react';
 import SEO from '../components/SEO';
 import PageHero from '../components/PageHero';
-import ContactForm from '../components/ContactForm';
 import WhatsAppIcon from '../components/WhatsAppIcon';
+import FacebookIcon from '../components/FacebookIcon';
+import InstagramIcon from '../components/InstagramIcon';
 import { WHATSAPP_URL } from '../lib/whatsapp';
 
-const contactDetails = [
+const FACEBOOK_URL = 'https://www.facebook.com/profile.php?id=61592578925736';
+const INSTAGRAM_URL = 'https://www.instagram.com/mana.digitalai/';
+
+interface ContactItem {
+  icon: ComponentType<{ size?: number; className?: string }>;
+  label: string;
+  value: string;
+  href: string;
+  iconClass: string;
+  external?: boolean;
+}
+
+const reachUsDetails: ContactItem[] = [
   {
     icon: Mail,
     label: 'Email',
@@ -20,7 +34,64 @@ const contactDetails = [
     href: 'tel:+919177484155',
     iconClass: 'bg-navy-950 text-cyan-400',
   },
+  {
+    icon: Globe,
+    label: 'Website',
+    value: 'www.manadigitalai.com',
+    href: 'https://www.manadigitalai.com/',
+    iconClass: 'bg-navy-950 text-cyan-400',
+    external: true,
+  },
 ];
+
+const followUsDetails: ContactItem[] = [
+  {
+    icon: WhatsAppIcon,
+    label: 'WhatsApp',
+    value: 'Chat with us',
+    href: WHATSAPP_URL,
+    iconClass: 'bg-[#25D366] text-white',
+    external: true,
+  },
+  {
+    icon: FacebookIcon,
+    label: 'Facebook',
+    value: '@manadigitalai',
+    href: FACEBOOK_URL,
+    iconClass: 'bg-[#1877F2] text-white',
+    external: true,
+  },
+  {
+    icon: InstagramIcon,
+    label: 'Instagram',
+    value: '@mana.digitalai',
+    href: INSTAGRAM_URL,
+    iconClass: 'bg-gradient-to-br from-[#f09433] via-[#dc2743] to-[#bc1888] text-white',
+    external: true,
+  },
+];
+
+function ContactRow({ icon: Icon, label, value, href, iconClass, external }: ContactItem) {
+  return (
+    <a
+      href={href}
+      {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+      className="flex items-center gap-5 rounded-2xl transition-opacity hover:opacity-80"
+    >
+      <span className={`flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl ${iconClass}`}>
+        <Icon size={26} />
+      </span>
+      <span className="min-w-0 flex-1">
+        <span className="block text-sm font-semibold uppercase tracking-wide text-navy-900/50">
+          {label}
+        </span>
+        <span className="block break-words text-lg sm:text-xl font-bold text-navy-900">
+          {value}
+        </span>
+      </span>
+    </a>
+  );
+}
 
 export default function Contact() {
   return (
@@ -38,48 +109,30 @@ export default function Contact() {
 
       <section className="bg-off-white py-20 sm:py-28">
         <div className="container-page">
-          <div className="mx-auto grid max-w-5xl grid-cols-1 gap-8 lg:grid-cols-[1fr_1.6fr] lg:items-start">
-            <div className="rounded-3xl border border-navy-900/8 bg-white p-6 shadow-sm sm:p-8">
-              <h2 className="text-lg font-bold text-navy-900">Reach Us Directly</h2>
-              <div className="mt-6 space-y-5">
-                {contactDetails.map((item) => (
-                  <a
-                    key={item.label}
-                    href={item.href}
-                    className="flex items-center gap-4 rounded-xl transition-opacity hover:opacity-80"
-                  >
-                    <span className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-xl ${item.iconClass}`}>
-                      <item.icon size={20} aria-hidden="true" />
-                    </span>
-                    <span>
-                      <span className="block text-xs font-semibold uppercase tracking-wide text-navy-900/50">
-                        {item.label}
-                      </span>
-                      <span className="block text-sm font-semibold text-navy-900">{item.value}</span>
-                    </span>
-                  </a>
+          <div className="mx-auto grid max-w-4xl grid-cols-1 gap-8 rounded-3xl border border-navy-900/8 bg-white p-8 shadow-sm sm:p-12 md:grid-cols-2">
+            <div>
+              <h2 className="text-2xl font-bold text-navy-900">Reach Us Directly</h2>
+              <p className="mt-2 text-base text-navy-900/60">
+                Email, call or visit our website — we usually respond quickly.
+              </p>
+              <div className="mt-8 space-y-6">
+                {reachUsDetails.map((item) => (
+                  <ContactRow key={item.label} {...item} />
                 ))}
-
-                <a
-                  href={WHATSAPP_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-4 rounded-xl transition-opacity hover:opacity-80"
-                >
-                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#25D366] text-white">
-                    <WhatsAppIcon size={20} />
-                  </span>
-                  <span>
-                    <span className="block text-xs font-semibold uppercase tracking-wide text-navy-900/50">
-                      WhatsApp
-                    </span>
-                    <span className="block text-sm font-semibold text-navy-900">Chat with us</span>
-                  </span>
-                </a>
               </div>
             </div>
 
-            <ContactForm />
+            <div className="border-t border-navy-900/8 pt-8 md:border-t-0 md:border-l md:pl-8 md:pt-0">
+              <h2 className="text-2xl font-bold text-navy-900">Follow Us</h2>
+              <p className="mt-2 text-base text-navy-900/60">
+                Follow along or message us directly on your platform of choice.
+              </p>
+              <div className="mt-8 space-y-6">
+                {followUsDetails.map((item) => (
+                  <ContactRow key={item.label} {...item} />
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </section>
