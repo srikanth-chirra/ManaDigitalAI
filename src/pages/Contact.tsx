@@ -1,5 +1,5 @@
 import type { ComponentType } from 'react';
-import { Mail, Phone, Globe } from 'lucide-react';
+import { Mail, Phone } from 'lucide-react';
 import SEO from '../components/SEO';
 import PageHero from '../components/PageHero';
 import WhatsAppIcon from '../components/WhatsAppIcon';
@@ -23,8 +23,8 @@ const reachUsDetails: ContactItem[] = [
   {
     icon: Mail,
     label: 'Email',
-    value: 'manadigitalai@gmail.com',
-    href: 'mailto:manadigitalai@gmail.com',
+    value: 'connect@manadigitalai.com',
+    href: 'mailto:connect@manadigitalai.com',
     iconClass: 'bg-navy-950 text-cyan-400',
   },
   {
@@ -33,14 +33,6 @@ const reachUsDetails: ContactItem[] = [
     value: '+91-9177484155',
     href: 'tel:+919177484155',
     iconClass: 'bg-navy-950 text-cyan-400',
-  },
-  {
-    icon: Globe,
-    label: 'Website',
-    value: 'www.manadigitalai.com',
-    href: 'https://www.manadigitalai.com/',
-    iconClass: 'bg-navy-950 text-cyan-400',
-    external: true,
   },
 ];
 
@@ -113,7 +105,7 @@ export default function Contact() {
             <div>
               <h2 className="text-2xl font-bold text-navy-900">Reach Us Directly</h2>
               <p className="mt-2 text-base text-navy-900/60">
-                Email, call or visit our website — we usually respond quickly.
+                Email or call us — we usually respond quickly.
               </p>
               <div className="mt-8 space-y-6">
                 {reachUsDetails.map((item) => (
